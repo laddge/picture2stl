@@ -12,14 +12,14 @@ def create_stl(img_path, stl_path):
     for x in tqdm(range(img.shape[0])):
         for y in range(img.shape[1]):
             vertices = np.array([
-                [x, y, 0],
-                [x + 1, y, 0],
-                [x + 1, y + 1, 0],
-                [x, y + 1, 0],
-                [x, y, 16 - int(img[x, y] / 16)],
-                [x + 1, y, 16 - int(img[x, y] / 16)],
-                [x + 1, y + 1, 16 - int(img[x, y] / 16)],
-                [x, y + 1, 16 - int(img[x, y] / 16)],
+                [x * 2, y * 2, 0],
+                [(x + 1) * 2, y * 2, 0],
+                [(x + 1) * 2, (y + 1) * 2, 0],
+                [x * 2, (y + 1) * 2, 0],
+                [x * 2, y * 2, 16 - int(img[x, y] / 16)],
+                [(x + 1) * 2, y * 2, 16 - int(img[x, y] / 16)],
+                [(x + 1) * 2, (y + 1) * 2, 16 - int(img[x, y] / 16)],
+                [x * 2, (y + 1) * 2, 16 - int(img[x, y] / 16)],
             ])
             faces = np.array([
                 [0, 3, 1],
